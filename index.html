@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人材エージェント転職フォーム</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- モーダル -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <h2>転職意欲はどれくらいありますか？</h2>
+        <button id="soonButton" onclick="selectIntent('soon')">近いうちに転職したい</button>
+        <button id="researchButton" onclick="selectIntent('research')">今は情報収集したい</button>
+    </div>
+</div>
+
+
+
+
+<!-- プログレスバー -->
+<ul class="progress-bar">
+    <li class="active">STEP 1</li>
+    <li>STEP 2</li>
+    <li>STEP 3</li>
+    <li>STEP 4</li>
+    <li>STEP 5</li>
+</ul>
+
+<!-- フォーム -->
+<form id="multiStepForm" action="https://lp.her-pass.jp/thanks-google-2" netlify>
+ 
+    <!-- STEP 1 -->
+    <div class="step active">
+        <label for="experience">経理としての経験年数はどれくらいですか？</label>
+        <div class="options">
+            <button type="button" class="option-button" onclick="selectOption('未経験')">未経験</button>
+            <button type="button" class="option-button" onclick="selectOption('3年未満')">3年未満</button>
+            <button type="button" class="option-button" onclick="selectOption('3~5年')">3~5年</button>
+            <button type="button" class="option-button" onclick="selectOption('6~10年')">6~10年</button>
+            <button type="button" class="option-button" onclick="selectOption('11年以上')">11年以上</button>
+        </div>
+        <button type="button" onclick="nextStep()">次へ</button>
+    </div>
+
+    <!-- STEP 2 (転職希望時期) -->
+    <div class="step">
+        <label for="timing">転職希望時期はいつですか？</label>
+        <div class="options">
+            <button type="button" class="option-button" onclick="selectOption('すぐに')">すぐに</button>
+            <button type="button" class="option-button" onclick="selectOption('3ヶ月以内')">3ヶ月以内</button>
+            <button type="button" class="option-button" onclick="selectOption('6ヶ月以内')">6ヶ月以内</button>
+            <button type="button" class="option-button" onclick="selectOption('1年以内')">1年以内</button>
+            <button type="button" class="option-button" onclick="selectOption('まだ決まっていない')">まだ決まっていない</button>
+        </div>
+        <div class="button-container">
+            <button type="button" onclick="prevStep()">戻る</button>
+            <button type="button" onclick="nextStep()">次へ</button>
+        </div>
+    </div>
+
+    <!-- STEP 3 (現在の年収) -->
+    <div class="step">
+        <label for="salary">現在の年収を教えてください</label>
+        <div class="options">
+            <button type="button" class="option-button" onclick="selectOption('300万円未満')">300万円未満</button>
+            <button type="button" class="option-button" onclick="selectOption('300~399万円')">300~399万円</button>
+            <button type="button" class="option-button" onclick="selectOption('400~499万円')">400~499万円</button>
+            <button type="button" class="option-button" onclick="selectOption('500~599万円')">500~599万円</button>
+            <button type="button" class="option-button" onclick="selectOption('600~699万円')">600~699万円</button>
+            <button type="button" class="option-button" onclick="selectOption('700~799万円')">700~799万円</button>
+            <button type="button" class="option-button" onclick="selectOption('800~999万円')">800~999万円</button>
+            <button type="button" class="option-button" onclick="selectOption('1000~1199万円')">1000~1199万円</button>
+            <button type="button" class="option-button" onclick="selectOption('1200万円以上')">1200万円以上</button>
+        </div>
+        <div class="button-container">
+            <button type="button" onclick="prevStep()">戻る</button>
+            <button type="button" onclick="nextStep()">次へ</button>
+        </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step">
+        <label for="age">年齢を教えてください。</label>
+        <input type="number" id="age" placeholder="例）32"　min="18" required>
+        <label for="name">名前を教えてください。</label>
+        <input type="text" id="name" placeholder="例）山田花子" required>
+        <div class="button-container">
+            <button type="button" onclick="prevStep()">戻る</button>
+            <button type="button" onclick="nextStep()">次へ</button>
+        </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step">
+        <label for="phone">電話番号を教えてください。</label>
+        <input type="tel" id="phone" placeholder="08012345678"　pattern="[0-9]{11}" required>
+        <label for="email">メールアドレスを教えてください。</label>
+        <input type="email" id="email" placeholder="example.gmail.com" required>
+        <div class="button-container">
+            <button type="button" onclick="prevStep()">戻る</button>
+            <button type="submit">送信</button>
+        </div>
+    </div>
+</form>
+
+<script src="script.js"></script>
+
+</body>
+</html>
